@@ -55,4 +55,14 @@ function DigHole(x, y, z)
 	end
 end
 
-DigHole(5, 1, 5)
+function PromptInput()
+	io.write("size of x?")
+	local x = io.read()
+	io.write("size of y?")
+	local y = io.read()
+	io.write("size of z?")
+	local z = io.read()
+	DigHole(tonumber(x), tonumber(y), tonumber(z))
+end
+
+PromptInput()
