@@ -27,7 +27,7 @@ function FarmLayer(x, z, action_function)
 	turtle.turnLeft()
 end
 
-function farm()
+function Farm()
 	if not turtle.detectDown() then
 		turtle.placeDown()
 	end
@@ -47,7 +47,7 @@ function PromptInput()
 	local x = tonumber(io.read())
 	io.write("size of z?")
 	local z = tonumber(io.read())
-	FarmLayer(x, z, farm)
+	FarmLayer(x, z, Farm)
 end
 
 PromptInput()
