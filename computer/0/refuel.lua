@@ -44,6 +44,9 @@ local function refuelTurtle()
 
     -- Always re-select slot 1 after refueling attempts to return to a default state
     turtle.select(1)
+
+    -- Print fuel levels after refueling
+    checkFuelLevel()
 end
 
 -- Call this function whenever you want the turtle to refuel
