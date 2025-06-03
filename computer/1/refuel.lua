@@ -7,7 +7,8 @@ local function refuelTurtle()
     local fuelItems = {
         "minecraft:coal",
         "minecraft:charcoal",
-        "minecraft:coal_block"
+        "minecraft:coal_block",
+        "minecraft:bamboo"
     }
 
     -- Iterate through all inventory slots (1 to 16 for a standard turtle)
