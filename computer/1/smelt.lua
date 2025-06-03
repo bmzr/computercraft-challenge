@@ -24,6 +24,7 @@
 local SMELTABLE_SLOT = 1 -- Inventory slot containing items to be smelted
 local FUEL_SLOT = 2 -- Inventory slot containing fuel (e.g., coal, charcoal)
 local SMELT_TIME_SECONDS = 20 -- Time to wait for smelting (adjust based on furnace speed)
+local SMELT_TIME_PER_ITEM_SECONDS = 10 -- Time per item
 
 -- Helper function to print status messages
 local function log(message)
@@ -44,6 +45,8 @@ end
 local function automateSmelting()
 	log("Starting single furnace automation sequence...")
 
+	smeltableItemCount = turtle.getItemCount(SMELTABLE_SLOT)
+	
 	-- Initial checks for items and fuel
 	if turtle.getItemCount(SMELTABLE_SLOT) == 0 then
 		log("Warning: No smeltable items found in slot " .. SMELTABLE_SLOT .. ". Script may not place items.")
@@ -59,7 +62,12 @@ local function automateSmelting()
 		local placed = turtle.dropDown()
 		if not placed then
 			log("Failed to place smeltable item. Is the furnace top blocked or full?")
+			return
 		end
+
+		 -- Calculate SMELT_TIME_SECONDS based on the number of items placed
+        SMELT_TIME_SECONDS = smeltableItemCount * SMELT_TIME_PER_ITEM_SECONDS
+        log("Calculated total smelt time for " .. smeltableItemCount .. " items: " .. SMELT_TIME_SECONDS .. " seconds.")
 	else
 		log("No smeltable items left in slot " .. SMELTABLE_SLOT .. ". Skipping item placement.")
 	end
