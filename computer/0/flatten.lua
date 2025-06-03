@@ -73,11 +73,11 @@ term.clear()
 term.setCursorPos(1,1)
 
 -- Get X dimension (width) from the user
-io.write("Enter X dimension (width of the area): ")
+io.write("Enter X (width): ")
 local xDim = tonumber(io.read())
 
 -- Get Z dimension (depth) from the user
-io.write("Enter Z dimension (depth of the area): ")
+io.write("Enter Z (length): ")
 local zDim = tonumber(io.read())
 
 -- Validate user input
